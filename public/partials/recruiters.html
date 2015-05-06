@@ -1,0 +1,51 @@
+<div class="row">
+  <a data-toggle="modal" data-target="#createRecruiter" class="btn btn-primary pull-right">Register as Recruiter!</a>
+</div>
+<div class="modal fade" id="createRecruiter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Welcome {{ recruiter.name || 'Recruiter' }}!</h4>
+        </div>
+        <div class="modal-body">
+
+      <form ng-submit="createRecruiter()">
+        <div class="form-group">
+          <label for="jobName">Name</label>
+          <input type="text" class="form-control" placeholder="Enter your Name" ng-model="recruiter.name" >
+        </div>
+        <div class="form-group">
+          <label for="jobLocation">Company</label>
+          <input type="text" class="form-control" placeholder="Enter your company" ng-model="recruiter.company" >
+        </div>
+        <div class="form-group">
+          <label for="jobDate">Contact</label>
+          <input type="text" class="form-control" placeholder="Your phone no." ng-model="recruiter.contact" >
+        </div>
+        <div class="form-group">
+          <label for="jobDate">Email</label>
+          <input type="email" class="form-control" placeholder="Your email" ng-model="recruiter.email" >
+        </div>
+
+       <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="submit"  class="btn btn-primary" class="createjob" >Register</button>
+      </div>
+    </form>
+   </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="row">
+  <h1 ng-hide="recruiters.length > 0">No recuiter yet. Are you one?! :P</h1>
+  <div ng-show="recruiters.length > 0" class="col-md-3" ng-repeat="r in recruiters">
+    <h3><i class="mdi-action-account-box"></i>{{r.name}}</h3>
+    <p><i class="mdi-communication-business"></i>{{r.company}}</p>
+    <p><i class="mdi-communication-email"></i> {{r.email}}</p>
+    <p><i class="mdi-communication-phone"></i> {{r.contact}}</p>
+  </div>
+</div>

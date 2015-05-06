@@ -1,0 +1,93 @@
+<div class="row">
+  <a data-toggle="modal" data-target="#createJob" class="btn btn-primary pull-right">Create job</a>
+</div>
+<div class="modal fade" id="createJob" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Create New job</h4>
+      </div>
+      <div class="modal-body">
+
+        <form ng-submit="createJob()">
+          <div class="form-group">
+            <label for="jobName">Company Name</label>
+            <input type="text" class="form-control" placeholder="Enter Company Name" ng-model="job.company">
+          </div>
+          <div class="form-group">
+            <label for="jobLocation">Job Location</label>
+            <input type="text" class="form-control" placeholder="Enter Job Location" ng-model="job.location">
+          </div>
+          <div class="form-group">
+            <label for="jobDate">Interview Date</label>
+            <input type="datetime-local" class="form-control" placeholder="Interview Date" ng-model="job.date">
+          </div>
+          <div class="form-group">
+            <label for="jobDesignation">Designation</label>
+            <input type="text" class="form-control" placeholder="Designation" ng-model="job.designation">
+          </div>
+          <div class="form-group">
+            <label for="jobSummary">Job Summary</label>
+            <textarea ng-model="job.summary" class="form-control"></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" class="createjob">Create Job</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="applyJob" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Apply for this job!</h4>
+      </div>
+      <div class="modal-body">
+
+        <form ng-submit="applyJob()">
+          <div class="form-group">
+            <label for="jobName">Your Name</label>
+            <input type="text" class="form-control" placeholder="Enter your name" ng-model="candidate.name">
+          </div>
+          <div class="form-group">
+            <label for="jobLocation">Email</label>
+            <input type="email" class="form-control" placeholder="Enter your email" ng-model="candidate.email">
+          </div>
+          <div class="form-group">
+            <label for="jobDate">Cover Letter</label>
+            <textarea ng-model="candidate.coverletter" class="form-control"></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" class="createjob">Apply</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <h1 ng-hide="jobs.length > 0">Oops! No jobs yet :P</h1>
+  <div ng-show="jobs.length > 0" class="col-md-3 job-item" ng-repeat="j in jobs">
+    <h2 class="text-center"><i class="mdi-communication-business"></i>{{j.company}}</h2>
+    <p><i class="mdi-maps-place"></i> {{j.location}}</p>
+    <p><i class="mdi-action-today"></i> {{j.date | date:'medium'}}</p>
+    <p><i class="mdi-action-work"></i> {{j.designation}}</p>
+    <p><i class="mdi-action-assignment"></i> {{j.summary}}</p>
+    <a data-toggle="modal" data-target="#applyJob" class="btn btn-info apply-btn pull-right" style="background: darkred; margin-top: 20px" role="button" ng-click="setCurrentJob(j._id)">Apply</a>
+  </div>
+</div>

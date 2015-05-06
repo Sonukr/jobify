@@ -1,0 +1,46 @@
+body {
+
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background:#fff;
+}
+
+a {
+  color: #00B7FF;
+  color: red;
+}
+
+/* .container-fluid{
+  padding: 0;
+
+} */
+
+.col-md-3 {
+  border-right: 10px solid white;
+  border-bottom: 10px solid white;
+  background: #ddd;
+  padding: 20px;
+}
+
+.job-item {
+  background: hotpink;
+}
+
+.apply-btn {
+  text-transform: capitalize;
+}
+
+.modal-title {
+  margin-bottom: 20px;
+}
+
+.modal-dialog .form-control {
+  margin-bottom: 30px;
+}
+
+.badge {
+  margin-right: 6px;
+}
+
+.candidate {
+  background: darkseagreen;
+}
